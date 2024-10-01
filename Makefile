@@ -1,7 +1,8 @@
+
+
 # Paths
 LIBFT_DIR = ./libft
 INC = ./includes
-
 
 # Compiler and Flags
 UNAME := $(shell uname)
@@ -20,17 +21,18 @@ endif
 
 # Project Files
 NAME = push_swap
-SRC = push_swap.c 
+SRC = push_swap.c functions/swap_functions.c functions/list_functions.c functions/check_args.c
 OBJ = $(SRC:.c=.o)
+HEADERS = $(INC)/push_swap.h
 
 # Targets
-all: $(NAME) $(NAME_SRV)
+all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT_DIR)/libft.a
 	$(CC) $(OBJ) -o $@ $(LFLAGS)
 
 
-%.o: %.c
+%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
@@ -42,3 +44,5 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+
