@@ -6,20 +6,12 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:16:14 by kami              #+#    #+#             */
-/*   Updated: 2024/10/01 10:08:52 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/01 10:42:13 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
-#include "./functions/swap_functions.c"
-#include "./functions/check_args.c"
-#include "./functions/list_functions.c"
-/*#include LINKEDLISTCREATION
-#include SWAPFUNCTIONS
-#include PUSHFUNCTIONS
-#include ROTATEFUNCTIONS
-#include REVERSEROTATEFUNCTIONS */
 
 int main(int argc, char **argv) {
 	int i;
@@ -60,15 +52,18 @@ int main(int argc, char **argv) {
 		currentNode = currentNode->next;
 	}
 
-	(void)stack_b;
+	stack_b = cloneStack(stack_a);
 
 	    printf("Stack before swap:\n");
     printStack(stack_a);
 
-    sa(&stack_a);
+    sb(&stack_b);
 
     printf("Stack after swap:\n");
     printStack(stack_a);
+
+	printf("Stack B after swap:\n");
+    printStack(stack_b);
 
     // Free the allocated memory
     while (stack_a) {

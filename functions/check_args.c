@@ -6,12 +6,12 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:27:14 by kami              #+#    #+#             */
-/*   Updated: 2024/10/01 10:01:35 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/01 10:36:04 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 void	ft_checkdigit(char *argv)
 {
@@ -47,3 +47,5 @@ void	ft_checkargs(int argc, char **argv)
 		ft_errhandle("Can't sort less than two numbers\n");
 	}
 }
+
+// MAX SIZE OF INTS????

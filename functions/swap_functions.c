@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:16:55 by kami              #+#    #+#             */
-/*   Updated: 2024/10/01 10:01:46 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/01 10:43:08 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,10 @@ void sb(stack **stack_b)
 	temp = first->data;
 	first->data = second->data;
 	second->data = temp;
+}
+
+void ss(stack **stack_b, stack **stack_a)
+{
+	sa(stack_a);
+	sb(stack_b);
 }
