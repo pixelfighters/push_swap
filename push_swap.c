@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:16:14 by kami              #+#    #+#             */
-/*   Updated: 2024/10/01 10:42:13 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/07 14:25:08 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,25 +44,28 @@ int main(int argc, char **argv) {
 		i++;
 	}
     average = total_value / (argc - 1);
-    printf("Total value is: %d\nAverage is: %d\n", total_value, average);
-	ft_printf("\nDoubly linked list (Stack A):\n");
+    printf("Total value is: %d\nAverage is: %d\n\n", total_value, average);
+
 	currentNode = stack_a;
 	while (currentNode) {
-		ft_printf("%d\n", currentNode->data);
+		// ft_printf("%d\n", currentNode->data);
 		currentNode = currentNode->next;
 	}
 
 	stack_b = cloneStack(stack_a);
 
-	    printf("Stack before swap:\n");
+    printf("Stack A before:\n");
     printStack(stack_a);
 
-    sb(&stack_b);
+	printf("\nStack B before:\n");
+    printStack(stack_b);
 
-    printf("Stack after swap:\n");
+	rrr(&stack_a, &stack_b);
+    
+    printf("\nStack A after:\n");
     printStack(stack_a);
 
-	printf("Stack B after swap:\n");
+	printf("\nStack B after:\n");
     printStack(stack_b);
 
     // Free the allocated memory
