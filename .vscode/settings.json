@@ -6,6 +6,7 @@
 		"string_view": "c",
 		"stdio.h": "c",
 		"libft.h": "c",
-		"type_traits": "c"
+		"type_traits": "c",
+		"push_swap.h": "c"
 	}
 }

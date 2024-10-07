@@ -6,30 +6,28 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:06:46 by kami              #+#    #+#             */
-/*   Updated: 2024/10/07 14:04:12 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/07 15:39:42 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "../includes/push_swap.h"
 
-void rotate(stack **stack_ptr)
+void	rotate(stack **stack_ptr)
 {
+	stack	*first;
+	stack	*last;
+
+	first = *stack_ptr;
+	last = *stack_ptr;
 	if (*stack_ptr == NULL || (*stack_ptr)->next == NULL)
 	{
-		// Do nothing if there is only one or no elements
-		return;
+		// checken welche conditions nicht rotieren!!!!!
+		ft_errhandle("Error msg - \n");
 	}
-
-	stack *first = *stack_ptr;
-	stack *last = *stack_ptr;
-
-	// Traverse to the last element
+	//  zum letzten element
 	while (last->next != NULL)
-	{
 		last = last->next;
-	}
-
 	// Update pointers to rotate the stack
 	*stack_ptr = first->next;
 	(*stack_ptr)->prev = NULL;
