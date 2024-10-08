@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:06:46 by kami              #+#    #+#             */
-/*   Updated: 2024/10/08 12:58:27 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/08 15:45:51 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,18 @@ void	rotate(stack **stack_ptr)
 void	ra(stack **stack_a)
 {
     rotate(stack_a);
+	ft_printf("ra\n");	
 }
 
 void	rb(stack **stack_b)
 {
     rotate(stack_b);
+	ft_printf("rb\n");	
 }
 
 void	rr(stack **stack_a, stack **stack_b)
 {
     rotate(stack_a);
     rotate(stack_b);
+	ft_printf("rr\n");
 }

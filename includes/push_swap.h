@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:21:23 by kami              #+#    #+#             */
-/*   Updated: 2024/10/07 16:28:10 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/08 16:13:32 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,24 @@ typedef struct stack
 	struct stack	*next;
 	struct stack	*prev;
 }	stack;
+
+typedef struct s_sort_vars
+{
+    int max_bits;
+    int i;
+    int j;
+    int size;
+    stack *temp;
+} radix_sort_vars;
+
+typedef struct s_counting_sort_vars
+{
+    int max_value;
+    int i;
+    int j;
+    int size;
+    stack *temp;
+} counting_sort_vars;
 
 // Function prototypes
 void	swap_top_two(stack **stack);
@@ -45,7 +63,9 @@ stack	*create_node(int data);
 stack	*clone_stack(stack *stack_a);
 void	ft_checkdigit(char *str);
 void	ft_checkargs(int argc, char **argv);
-void 	sort_stack(stack **stack_a, stack **stack_b);
+void	radix_sort_stack(stack **stack_a, stack **stack_b);
+void	counting_sort_stack(stack **stack_a, stack **stack_b);
+int		get_max_bits(stack *stack_a);
 /*
 PUSHFUNCTIONS
 ROTATEFUNCTIONS
