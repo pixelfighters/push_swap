@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:27:14 by kami              #+#    #+#             */
-/*   Updated: 2024/10/07 15:37:07 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/08 12:50:23 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_checkdigit(char *argv)
 {
 	char	error_msg[25];
 
-	if (!ft_isdigit(*argv))
+	if (!ft_isdigit(*argv) && *argv != '-')
 	{
 		ft_printf("\n");
 		ft_print_ascii_art("ARG ERROR", KRED, 1);

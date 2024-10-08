@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:21:23 by kami              #+#    #+#             */
-/*   Updated: 2024/10/07 15:46:42 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/07 16:28:10 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ stack	*create_node(int data);
 stack	*clone_stack(stack *stack_a);
 void	ft_checkdigit(char *str);
 void	ft_checkargs(int argc, char **argv);
+void 	sort_stack(stack **stack_a, stack **stack_b);
 /*
 PUSHFUNCTIONS
 ROTATEFUNCTIONS
