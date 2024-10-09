@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:21:23 by kami              #+#    #+#             */
-/*   Updated: 2024/10/08 16:13:32 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/09 14:50:32 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,15 @@ void	ft_checkdigit(char *str);
 void	ft_checkargs(int argc, char **argv);
 void	radix_sort_stack(stack **stack_a, stack **stack_b);
 void	counting_sort_stack(stack **stack_a, stack **stack_b);
+void	bubble_sort_stack(stack **stack_a, stack **stack_b);
+void	merge_sort_stack(stack **stack_a, stack **stack_b, int size);
+void	merge_stacks(stack **stack_a, stack **stack_b, int left_size, int right_size);
 int		get_max_bits(stack *stack_a);
+int		choose_pivot(stack *stack_a);
+void	quick_sort_stack(stack **stack_a, stack **stack_b);
+void quick_sort_stack_helper(stack **stack_a, stack **stack_b, int size);
+int choose_pivot(stack *stack_a);
+int get_stack_size(stack *stack_a);
 /*
 PUSHFUNCTIONS
 ROTATEFUNCTIONS

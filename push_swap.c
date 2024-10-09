@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:16:14 by kami              #+#    #+#             */
-/*   Updated: 2024/10/08 16:14:08 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/09 14:49:43 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,9 @@ int	main(int argc, char **argv)
     } else {
         // ft_printf("\nStack is not sorted. Sorting...\n");
        // radix_sort_stack(&stack_a, &stack_b);
-	   counting_sort_stack(&stack_a, &stack_b);
+	   // bubble_sort_stack(&stack_a, &stack_b);
+	   quick_sort_stack(&stack_a, &stack_b);
+	   // counting_sort_stack(&stack_a, &stack_b);
 	}
  //   printf("\nStack A after:\n");
    print_stack(stack_a);	
