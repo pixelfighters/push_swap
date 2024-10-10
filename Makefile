@@ -21,7 +21,7 @@ endif
 
 # Project Files
 NAME = push_swap
-SRC = push_swap.c functions/swap_functions.c functions/list_functions.c functions/sort_radix.c functions/sort_counting.c   functions/sort_quicksort.c  functions/sort_merge.c functions/sort_bubble.c	functions/push_functions.c functions/reverse_rotate_functions.c functions/rotate_functions.c functions/check_args.c
+SRC = push_swap.c functions/swap_functions.c functions/list_functions.c functions/sort_obvious.c functions/sort_radix.c functions/sort_counting.c   functions/sort_quicksort.c  functions/sort_merge.c functions/sort_bubble.c	functions/push_functions.c functions/reverse_rotate_functions.c functions/rotate_functions.c functions/check_args.c
 OBJ = $(SRC:.c=.o)
 HEADERS = $(INC)/push_swap.h
 

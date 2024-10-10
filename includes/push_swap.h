@@ -6,7 +6,7 @@
 /*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:21:23 by kami              #+#    #+#             */
-/*   Updated: 2024/10/09 14:50:32 by fschuh           ###   ########.fr       */
+/*   Updated: 2024/10/10 10:41:53 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <stdbool.h>
 
 // Define the stack node structure
 typedef struct stack
@@ -43,6 +44,7 @@ typedef struct s_counting_sort_vars
 } counting_sort_vars;
 
 // Function prototypes
+bool	is_sorted(stack *stack_a);
 void	swap_top_two(stack **stack);
 void	sa(stack **stack_a);
 void	sb(stack **stack_b);
@@ -74,9 +76,8 @@ void	quick_sort_stack(stack **stack_a, stack **stack_b);
 void quick_sort_stack_helper(stack **stack_a, stack **stack_b, int size);
 int choose_pivot(stack *stack_a);
 int get_stack_size(stack *stack_a);
-/*
-PUSHFUNCTIONS
-ROTATEFUNCTIONS
-REVERSEROTATEFUNCTIONS */
+void	two_sort_stack(stack **stack_a);
+void	three_sort_stack(stack **stack_a);
+void	five_sort_stack(stack **stack_a, stack **stack_b);
 
 #endif 

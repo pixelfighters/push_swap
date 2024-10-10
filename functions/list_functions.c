@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:34 by kami              #+#    #+#             */
-/*   Updated: 2024/10/07 15:42:15 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/10 11:01:54 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_stack(stack *stack_a)
 	currentNode = stack_a;
 	while (currentNode)
 	{
-		printf("%d\n", currentNode->data);
+		ft_printf("%d\n", currentNode->data);
 		currentNode = currentNode->next;
 	}
 }

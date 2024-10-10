@@ -6,7 +6,7 @@
 /*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:16:14 by kami              #+#    #+#             */
-/*   Updated: 2024/10/09 14:49:43 by fschuh           ###   ########.fr       */
+/*   Updated: 2024/10/10 11:02:02 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,14 +91,40 @@ int	main(int argc, char **argv)
     if (is_sorted(stack_a)) {
         // ft_printf("\nStack is already sorted.\n");
     } else {
-        // ft_printf("\nStack is not sorted. Sorting...\n");
+		if (argc == 3)
+		{	
+			// ft_printf("\nStack of 2\n");
+			two_sort_stack(&stack_a);
+			// print_stack(stack_a);
+		}
+		else if (argc == 4)
+		{	
+			// ft_printf("\nStack of 3\n");
+			three_sort_stack(&stack_a);
+			// print_stack(stack_a);
+		}
+		else if (argc > 4 && argc < 7)
+		{	
+			ft_printf("\nStack of 4 or 5\n");
+			five_sort_stack(&stack_a, &stack_b);
+			print_stack(stack_a);
+		}
+		else
+		{	
+			ft_printf("\nLarger stack\n");
+			counting_sort_stack(&stack_a, &stack_b);
+			//radix_sort_stack(&stack_a, &stack_b);
+			// print_stack(stack_a);
+		}		
+
+	    // ft_printf("\nStack is not sorted. Sorting...\n");
        // radix_sort_stack(&stack_a, &stack_b);
 	   // bubble_sort_stack(&stack_a, &stack_b);
-	   quick_sort_stack(&stack_a, &stack_b);
+
 	   // counting_sort_stack(&stack_a, &stack_b);
 	}
  //   printf("\nStack A after:\n");
-   print_stack(stack_a);	
+   // print_stack(stack_a);	
 	// Free memory
 	while (stack_a)
 	{
