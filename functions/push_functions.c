@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:06:46 by kami              #+#    #+#             */
-/*   Updated: 2024/10/08 15:47:03 by kami             ###   ########.fr       */
+/*   Updated: 2024/12/04 15:57:14 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ void	push(stack **stack_from_ptr, stack **stack_to_ptr)
 	// printf("Pushed value is: %d\n", push_value->data);
 }
 
-void	pa(stack **stack_a, stack **stack_b)
+void	pa(stack **stack_a, stack **stack_b, instruction **instructions)
 {
+	add_instruction(instructions, "pa");
 	push(stack_b, stack_a);
-	ft_printf("pa\n");	
 }
 
-void	pb(stack **stack_a, stack **stack_b)
+void	pb(stack **stack_a, stack **stack_b, instruction **instructions)
 {
+	add_instruction(instructions, "pb");
 	push(stack_a, stack_b);
-	ft_printf("pb\n");	
 }

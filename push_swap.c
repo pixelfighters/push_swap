@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 11:16:14 by kami              #+#    #+#             */
-/*   Updated: 2024/10/10 11:02:02 by fschuh           ###   ########.fr       */
+/*   Updated: 2024/12/04 20:24:23 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	main(int argc, char **argv)
 	stack	*currentNode;
 	stack	*newNode;
 	stack	*temp;
+	instruction *instructions = NULL;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -88,31 +89,34 @@ int	main(int argc, char **argv)
   //  print_stack(stack_b);
 
     // Sort stack_a
-    if (is_sorted(stack_a)) {
+    if (is_sorted(stack_a))
+	{
         // ft_printf("\nStack is already sorted.\n");
-    } else {
+	}
+	else 
+		{
 		if (argc == 3)
 		{	
 			// ft_printf("\nStack of 2\n");
-			two_sort_stack(&stack_a);
+			two_sort_stack(&stack_a, &instructions);
 			// print_stack(stack_a);
 		}
 		else if (argc == 4)
 		{	
 			// ft_printf("\nStack of 3\n");
-			three_sort_stack(&stack_a);
+			three_sort_stack(&stack_a, &instructions);
 			// print_stack(stack_a);
 		}
 		else if (argc > 4 && argc < 7)
 		{	
 			ft_printf("\nStack of 4 or 5\n");
-			five_sort_stack(&stack_a, &stack_b);
-			print_stack(stack_a);
+			five_sort_stack(&stack_a, &stack_b, &instructions);
+			// print_stack(stack_a);
 		}
 		else
 		{	
 			ft_printf("\nLarger stack\n");
-			counting_sort_stack(&stack_a, &stack_b);
+			counting_sort_stack(&stack_a, &stack_b, &instructions);
 			//radix_sort_stack(&stack_a, &stack_b);
 			// print_stack(stack_a);
 		}		
@@ -124,7 +128,21 @@ int	main(int argc, char **argv)
 	   // counting_sort_stack(&stack_a, &stack_b);
 	}
  //   printf("\nStack A after:\n");
-   // print_stack(stack_a);	
+
+     // Print the stored instructions
+  
+     printf("\nInstructions:\n");
+    instruction *current_instruction = instructions;
+    while (current_instruction) {
+        printf("%s\n", current_instruction->command);
+        current_instruction = current_instruction->next;
+    }
+
+	ft_printf("\n\nResult:\n");
+  print_stack(stack_a);
+ // execute_instructions(instructions, &stack_a, &stack_b);
+
+	
 	// Free memory
 	while (stack_a)
 	{
@@ -132,5 +150,14 @@ int	main(int argc, char **argv)
 		stack_a = stack_a->next;
 		free(temp);
 	}
+
+    // Free instructions
+    while (instructions) {
+        instruction *next = instructions->next;
+        free(instructions->command);
+        free(instructions);
+        instructions = next;
+    }
+	
 	return (0);
 }

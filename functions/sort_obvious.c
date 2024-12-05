@@ -3,79 +3,90 @@
 /*                                                        :::      ::::::::   */
 /*   sort_obvious.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:34 by kami              #+#    #+#             */
-/*   Updated: 2024/10/10 12:43:32 by fschuh           ###   ########.fr       */
+/*   Updated: 2024/12/05 15:02:48 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "../includes/push_swap.h"
 
-void	two_sort_stack(stack **stack_a)
+int get_stack_size(stack *stack_x)
 {
-	ra(stack_a);
+    int size = 0;
+
+    while (stack_x)
+    {
+        size++;
+        stack_x = stack_x->next;
+    }
+    return (size);
 }
 
-void	three_sort_stack(stack **stack_a)
+int get_last_element_data(stack *stack_x)
 {
-	while(!is_sorted(*stack_a))
+    while (stack_x->next != NULL)
+    {
+        stack_x = stack_x->next;
+    }
+    return (stack_x->data);
+}
+
+void	two_sort_stack(stack **stack_x, instruction **instructions)
+{
+    ra(stack_x, instructions);
+}
+
+void	three_sort_stack(stack **stack_x, instruction **instructions)
+{
+	while(!is_sorted(*stack_x))
 	{
-		if ((*stack_a)->data < (*stack_a)->next->data)
-			sa(stack_a);
-		else if ((*stack_a)->next->data < (*stack_a)->data)
-			ra(stack_a);
+		if ((*stack_x)->data < (*stack_x)->next->data)
+			sa(stack_x, instructions);
+		else if ((*stack_x)->next->data < (*stack_x)->data)
+			ra(stack_x, instructions);
 		else
-			rra(stack_a);
+			rra(stack_x, instructions);
 	}
 
 }
 
-void five_sort_stack(stack **stack_a, stack **stack_b)
+void five_sort_stack(stack **stack_a, stack **stack_b, instruction **instructions)
 {
-    int i = 0;
     while (get_stack_size(*stack_a) > 3)
-    {
-        pb(stack_a, stack_b); 
-    }
-    three_sort_stack(stack_a);
-	two_sort_stack(stack_b);
-	while(!is_sorted(*stack_a) || get_stack_size(*stack_a) != 5)
-	
+        pb(stack_a, stack_b, instructions); 
+    three_sort_stack(stack_a, instructions);
+	if(get_stack_size(*stack_b) == 2 && (*stack_b)->data > (*stack_b)->next->data)	
+		two_sort_stack(stack_b, instructions);
+	while (!is_sorted(*stack_a) || (get_stack_size(*stack_a) != 5 && (*stack_b)->data))
 	{
 		if ((*stack_b)->data < (*stack_a)->data)
-			pa(stack_a, stack_b);
-		else
+			pa(stack_a, stack_b, instructions);
+		else if ((*stack_b)->data > get_last_element_data(*stack_a))
 		{
-			rra(stack_a);
-			pa(stack_a, stack_b);
-			ra(stack_a);
-			ra(stack_a);
-			if (!is_sorted(*stack_a))
-				ft_printf("a is sorted");
-				
+			pa(stack_a, stack_b, instructions);
+			ra(stack_a, instructions);
+		}
+		else if ((*stack_b)->data > (*stack_a)->next->data)
+		{
+		ft_printf("\nnext next %d\n", (*stack_a)->next->data);
+			if (((*stack_b)->data > (*stack_a)->next->data) && ((*stack_b)->data < (*stack_a)->next->next->data))
+			{
+				ra(stack_a, instructions);
+				ra(stack_a, instructions);
+				pa(stack_a, stack_b, instructions);
+				rra(stack_a, instructions);
+				rra(stack_a, instructions);
+			}
+			else if (((*stack_b)->data > (*stack_a)->next->next->data) && ((*stack_b)->data < (*stack_a)->next->next->next->data))
+			{
+				rra(stack_a, instructions);
+				pa(stack_a, stack_b, instructions);
+				ra(stack_a, instructions);
+				ra(stack_a, instructions);
+			}
 		}
 	}
-i++;
-/*     while (get_stack_size(*stack_a))
-    {
-        if ((*stack_b)->data < (*stack_a)->data)
-        {
-            pa(stack_a, stack_b); 
-        }
-        else
-        {
-            ra(stack_a);
-			pa(stack_a, stack_b);
-        }
-		i++;
-    } */
-	ft_printf("\nstack a\n");
-	print_stack(*stack_a);
-	ft_printf("\nstack b\n");
-	print_stack(*stack_b);
-
-    ft_printf("\nFinal sorted stack a:\n");
-    print_stack(*stack_a);
 }

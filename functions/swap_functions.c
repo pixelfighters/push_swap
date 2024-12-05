@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:06:46 by kami              #+#    #+#             */
-/*   Updated: 2024/10/08 15:46:41 by kami             ###   ########.fr       */
+/*   Updated: 2024/12/04 16:02:01 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,21 @@ void	swap_top_two(stack **stack_ptr)
 	second->data = temp;
 }
 
-void	sa(stack **stack_a)
+void	sa(stack **stack_a, instruction **instructions)
 {
+	add_instruction(instructions, "sa");
 	swap_top_two(stack_a);
-	ft_printf("sa\n");
 }
 
-void	sb(stack **stack_b)
+void	sb(stack **stack_b, instruction **instructions)
 {
+	add_instruction(instructions, "sb");
 	swap_top_two(stack_b);
-	ft_printf("sb\n");	
 }
 
-void	ss(stack **stack_a, stack **stack_b)
+void	ss(stack **stack_a, stack **stack_b, instruction **instructions)
 {
+	add_instruction(instructions, "ss");
 	swap_top_two(stack_a);
 	swap_top_two(stack_b);
-	ft_printf("ss\n");	
 }
