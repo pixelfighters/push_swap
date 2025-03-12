@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:34 by kami              #+#    #+#             */
-/*   Updated: 2024/12/04 15:51:18 by kami             ###   ########.fr       */
+/*   Updated: 2024/10/08 16:08:45 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	get_max_bits(stack *stack_a)
 	return (bits);
 }
 
-void	radix_sort_stack(stack **stack_a, stack **stack_b, instruction **instructions)
+void	radix_sort_stack(stack **stack_a, stack **stack_b)
 {
 	radix_sort_vars vars;
 
@@ -52,12 +52,12 @@ void	radix_sort_stack(stack **stack_a, stack **stack_b, instruction **instructio
 		while (vars.j++ < vars.size)
 		{
 			if ((((*stack_a)->data >> vars.i) & 1) == 1)
-				ra(stack_a, instructions);
+				ra(stack_a);
 			else
-				pb(stack_a, stack_b, instructions);
+				pb(stack_a, stack_b);
 		}
 		while (*stack_b)
-			pa(stack_a, stack_b, instructions);
+			pa(stack_a, stack_b);
 		vars.i++;
 	}
 }

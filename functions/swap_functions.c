@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   swap_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:06:46 by kami              #+#    #+#             */
-/*   Updated: 2024/12/04 16:02:01 by kami             ###   ########.fr       */
+/*   Updated: 2025/03/06 14:07:52 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-void	swap_top_two(stack **stack_ptr)
+void	swap_top_two(t_stack **stack_ptr)
 {
 	int		temp;
-	stack	*first;
-	stack	*second;
+	t_stack	*first;
+	t_stack	*second;
 
 	first = *stack_ptr;
 	second = (*stack_ptr)->next;
@@ -25,26 +24,26 @@ void	swap_top_two(stack **stack_ptr)
 	{
 		ft_errhandle("Error msg - not enough elements in stack\n");
 	}
-	temp = first->data;
-	first->data = second->data;
-	second->data = temp;
+	temp = first->value;
+	first->value = second->value;
+	second->value = temp;
 }
 
-void	sa(stack **stack_a, instruction **instructions)
+void	sa(t_stack **stack_a)
 {
-	add_instruction(instructions, "sa");
 	swap_top_two(stack_a);
+	ft_printf("sa\n");
 }
 
-void	sb(stack **stack_b, instruction **instructions)
+void	sb(t_stack **stack_b)
 {
-	add_instruction(instructions, "sb");
 	swap_top_two(stack_b);
+	ft_printf("sb\n");
 }
 
-void	ss(stack **stack_a, stack **stack_b, instruction **instructions)
+void	ss(t_stack **stack_a, t_stack **stack_b)
 {
-	add_instruction(instructions, "ss");
 	swap_top_two(stack_a);
 	swap_top_two(stack_b);
+	ft_printf("ss\n");
 }

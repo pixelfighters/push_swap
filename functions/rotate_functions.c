@@ -3,57 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_functions.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:06:46 by kami              #+#    #+#             */
-/*   Updated: 2024/12/04 19:37:58 by kami             ###   ########.fr       */
+/*   Updated: 2025/03/12 14:59:11 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-void	rotate(stack **stack_ptr)
+void	rotate(t_stack **stack_ptr)
 {
-    stack	*first;
-    stack	*last;
+	t_stack	*first;
+	t_stack	*last;
 
-    if (*stack_ptr == NULL || (*stack_ptr)->next == NULL)
-    {
-        // No rotation needed for empty stack or single element stack
-        return;
-    }
-
-    first = *stack_ptr;
-    last = *stack_ptr;
-
-    // Move to the last element
-    while (last->next != NULL)
-        last = last->next;
-
-    // Update pointers to rotate the stack
-    *stack_ptr = first->next;
-    (*stack_ptr)->prev = NULL;
-    first->next = NULL;
-    first->prev = last;
-    last->next = first;
+	if (*stack_ptr == NULL || (*stack_ptr)->next == NULL)
+		return (0);
+	first = *stack_ptr;
+	last = *stack_ptr;
+	while (last->next != NULL)
+		last = last->next;
+	*stack_ptr = first->next;
+	(*stack_ptr)->prev = NULL;
+	first->next = NULL;
+	first->prev = last;
+	last->next = first;
 }
 
-void	ra(stack **stack_a, instruction **instructions)
+void	ra(t_stack **stack_a)
 {
-	add_instruction(instructions, "ra");
 	rotate(stack_a);
+	ft_printf("ra\n");
 }
 
-void	rb(stack **stack_b, instruction **instructions)
+void	rb(t_stack **stack_b)
 {
-	add_instruction(instructions, "rb");
 	rotate(stack_b);
+	ft_printf("rb\n");
 }
 
-void	rr(stack **stack_a, stack **stack_b, instruction **instructions)
+void	rr(t_stack **stack_a, t_stack **stack_b)
 {
-	add_instruction(instructions, "rr");
 	rotate(stack_a);
 	rotate(stack_b);
+	ft_printf("rr\n");
 }

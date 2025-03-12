@@ -1,0 +1,34 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "push_swap.c",
+                "./functions/list_functions.c",
+                "./functions/rotate_functions.c",
+                "./functions/sort_simples.c",
+                "./functions/swap_functions.c",
+                "./functions/rev_rotate_functions.c",
+                "./functions/push_functions.c",
+                "./functions/arg_functions.c",
+                "-I./includes",
+                "-I./functions",
+                "-I./libft",
+                "-L./libft",
+                "-lft",
+                "-o",
+                "push_swap"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Generated task by VS Code."
+        }
+    ]
+}

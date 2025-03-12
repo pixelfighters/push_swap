@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:21:23 by kami              #+#    #+#             */
-/*   Updated: 2024/12/04 16:14:55 by kami             ###   ########.fr       */
+/*   Updated: 2025/03/12 12:31:32 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,71 +15,47 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <stdbool.h>
+# include "libft.h"
 
-// Define the stack node structure
-typedef struct stack
-{
-	int				data;
-	struct stack	*next;
-	struct stack	*prev;
-}	stack;
+#define MAX_COMMANDS 500
 
-typedef struct s_sort_vars
+typedef struct s_node
 {
-    int max_bits;
-    int i;
-    int j;
-    int size;
-    stack *temp;
-} radix_sort_vars;
-
-typedef struct s_counting_sort_vars
-{
-    int max_value;
-    int i;
-    int j;
-    int size;
-    stack *temp;
-} counting_sort_vars;
-
-typedef struct s_instruction
-{
-	char					*command;
-	struct s_instruction	*next;
-} instruction;
+	int				value;
+	struct s_node	*next;
+	struct s_node	*prev;
+} t_stack;
 
 // Function prototypes
-void	add_instruction(instruction **instructions, const char *command);
-void	execute_instructions(instruction *instructions, stack **stack_a, stack **stack_b);
-void	swap_top_two(stack **stack);
-void	sa(stack **stack_a, instruction **instructions);
-void	sb(stack **stack_b, instruction **instructions);
-void	ss(stack **stack_a, stack **stack_b, instruction **instructions);
-void	push(stack **stack_from_ptr, stack **stack_to_ptr);
-void	pa(stack **stack_b, stack **stack_a, instruction **instructions);
-void	pb(stack **stack_a, stack **stack_b, instruction **instructions);
-void	rotate(stack **stack_ptr);
-void	ra(stack **stack_a, instruction **instructions);
-void	rb(stack **stack_b, instruction **instructions);
-void	rr(stack **stack_a, stack **stack_b, instruction **instructions);
-void	reverse_rotate(stack **stack_ptr);
-void	rra(stack **stack_a, instruction **instructions);
-void	rrb(stack **stack_b, instruction **instructions);
-void	rrr(stack **stack_a, stack **stack_b, instruction **instructions);
-void	two_sort_stack(stack **stack_a, instruction **instructions);
-void	three_sort_stack(stack **stack_a, instruction **instructions);
-void	five_sort_stack(stack **stack_a, stack **stack_b, instruction **instructions);
-void	print_stack(stack *stack_a);
-stack	*create_node(int data);
-stack	*clone_stack(stack *stack_a);
-void	ft_checkdigit(char *str);
-void	ft_checkargs(int argc, char **argv);
-void	radix_sort_stack(stack **stack_a, stack **stack_b, instruction **instructions);
-void	counting_sort_stack(stack **stack_a, stack **stack_b, instruction **instructions);
-int		get_max_bits(stack *stack_a);
-/*
-PUSHFUNCTIONS
-ROTATEFUNCTIONS
-REVERSEROTATEFUNCTIONS */
 
+int		ft_checkargs(int argc, char **argv);
+int		ft_count(int argc, t_stack **stack_a, t_stack **stack_b);
+int		is_sorted(t_stack *stack_a);
+t_stack	*ft_last_item(t_stack *stack);
+int		stack_size(t_stack *stack_a);
+void	sort_two(t_stack **stack_a);
+void	sort_three(t_stack **stack_a, t_stack **stack_b);
+
+void	print_list(t_stack *stack_a);
+t_stack	*fill_node(int argc, char **argv);
+
+void	rotate(t_stack **stack_ptr);
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+
+void	reverse_rotate(t_stack **stack_ptr);
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
+
+void	swap_top_two(t_stack **stack_ptr);
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
+
+void	push(t_stack **stack_from_ptr, t_stack **stack_to_ptr);
+void	pa(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_a, t_stack **stack_b);
 #endif 
