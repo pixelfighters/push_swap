@@ -6,15 +6,23 @@
 /*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 12:31:14 by fschuh            #+#    #+#             */
-/*   Updated: 2025/03/12 15:01:13 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/03/13 14:46:50 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_two(t_stack **stack_a)
+int	is_sorted(t_stack *stack_a)
 {
-	ra(stack_a);
+	if (stack_a == NULL)
+		return (1);
+	while (stack_a->next != NULL)
+	{
+		if (stack_a->value > stack_a->next->value)
+			return (0);
+		stack_a = stack_a->next;
+	}
+	return (1);
 }
 
 void	sort_three(t_stack **stack_a, t_stack **stack_b)
@@ -22,7 +30,7 @@ void	sort_three(t_stack **stack_a, t_stack **stack_b)
 	if (stack_size(*stack_a) == 3)
 		pb(stack_a, stack_b);
 	if (!is_sorted(*stack_a))
-		sort_two(stack_a);
+		ra(stack_a);
 	if ((*stack_b)->value < (*stack_a)->value)
 		pa(stack_a, stack_b);
 	else if ((*stack_b)->value > ft_last_item(*stack_a)->value)
@@ -100,7 +108,7 @@ int	ft_count(int argc, t_stack **stack_a, t_stack **stack_b)
 	while (!is_sorted(*stack_a) && i <= MAX_COMMANDS)
 	{
 		if (argc == 3)
-			sort_two(stack_a);
+			ra(stack_a);
 		else if (argc == 4)
 			sort_three(stack_a, stack_b);
 		else if (argc == 5)
@@ -108,7 +116,10 @@ int	ft_count(int argc, t_stack **stack_a, t_stack **stack_b)
 		else if (argc == 6)
 			sort_five(stack_a, stack_b);
 		else
-			ft_printf("anzahl big");
+		{
+			sort_radix(stack_a, stack_b);
+			ft_printf("radix\n");
+		}
 		i++;
 	}
 	return (0);

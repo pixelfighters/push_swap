@@ -6,7 +6,7 @@
 /*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:21:23 by kami              #+#    #+#             */
-/*   Updated: 2025/03/12 12:31:32 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/03/13 14:45:20 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,30 @@
 # include <stdbool.h>
 # include "libft.h"
 
-#define MAX_COMMANDS 500
+# define MAX_COMMANDS 500
 
 typedef struct s_node
 {
 	int				value;
+	int				index;
 	struct s_node	*next;
 	struct s_node	*prev;
-} t_stack;
+}	t_stack;
 
 // Function prototypes
 
 int		ft_checkargs(int argc, char **argv);
 int		ft_count(int argc, t_stack **stack_a, t_stack **stack_b);
 int		is_sorted(t_stack *stack_a);
+void	free_list(t_stack *stack);
 t_stack	*ft_last_item(t_stack *stack);
+int		read_bits(t_stack **stack);
 int		stack_size(t_stack *stack_a);
-void	sort_two(t_stack **stack_a);
 void	sort_three(t_stack **stack_a, t_stack **stack_b);
+void	sort_four(t_stack **stack_a, t_stack **stack_b);
+void	sort_five(t_stack **stack_a, t_stack **stack_b);
+void	init_index(t_stack *stack);
+void	sort_radix(t_stack **stack_a, t_stack **stack_b);
 
 void	print_list(t_stack *stack_a);
 t_stack	*fill_node(int argc, char **argv);

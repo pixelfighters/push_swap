@@ -6,11 +6,23 @@
 /*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:18:38 by fschuh            #+#    #+#             */
-/*   Updated: 2025/03/12 15:03:56 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/03/13 14:45:37 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_list(t_stack *stack)
+{
+	t_stack	*temp;
+
+	while (stack != NULL)
+	{
+		temp = stack;
+		stack = stack->next;
+		free(temp);
+	}
+}
 
 int	stack_size(t_stack *stack_a)
 {
@@ -36,17 +48,6 @@ void	print_list(t_stack *stack_a)
 		temp = temp->next;
 	}
 	ft_printf("\n");
-}
-
-int	is_sorted(t_stack *stack_a)
-{
-	while (stack_a->next != NULL)
-	{
-		if (stack_a->value > stack_a->next->value)
-			return (0);
-		stack_a = stack_a->next;
-	}
-	return (1);
 }
 
 t_stack	*fill_node(int argc, char **argv)
