@@ -6,7 +6,7 @@
 /*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:34 by kami              #+#    #+#             */
-/*   Updated: 2025/03/13 14:42:51 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/03/13 14:48:07 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,7 @@ int	main(int argc, char **argv)
 		stack_a = fill_node(argc, argv);
 		init_index(stack_a);
 		stack_b = NULL;
-		print_list(stack_a);
 		ft_count(argc, &stack_a, &stack_b);
-		print_list(stack_a);
 		free_list(stack_a);
 		free_list(stack_b);
 	}

@@ -6,7 +6,7 @@
 /*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 12:31:14 by fschuh            #+#    #+#             */
-/*   Updated: 2025/03/13 14:46:50 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/03/13 14:48:16 by fschuh           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,10 +116,7 @@ int	ft_count(int argc, t_stack **stack_a, t_stack **stack_b)
 		else if (argc == 6)
 			sort_five(stack_a, stack_b);
 		else
-		{
 			sort_radix(stack_a, stack_b);
-			ft_printf("radix\n");
-		}
 		i++;
 	}
 	return (0);
