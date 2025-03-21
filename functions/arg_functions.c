@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arg_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:23:33 by fschuh            #+#    #+#             */
-/*   Updated: 2025/03/06 14:08:14 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/03/17 15:23:42 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,9 @@ int	ft_checkdoubles(int argc, char **argv)
 int	ft_checkargs(int argc, char **argv)
 {
 	int	i;
-	int	j;
 	int	number;
 
 	i = 1;
-	j = 0;
 	while (argc > i)
 	{
 		number = (ft_atoi(argv[i]));

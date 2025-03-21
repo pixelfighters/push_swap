@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:34 by kami              #+#    #+#             */
-/*   Updated: 2025/03/13 14:48:07 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/03/17 15:40:13 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@
 
 int	main(int argc, char **argv)
 {
-	int		i;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	i = 0;
 	if (!ft_checkargs(argc, argv))
 	{
 		stack_a = fill_node(argc, argv);
 		init_index(stack_a);
+		print_list(stack_a);
 		stack_b = NULL;
 		ft_count(argc, &stack_a, &stack_b);
+		print_list(stack_a);
 		free_list(stack_a);
 		free_list(stack_b);
 	}

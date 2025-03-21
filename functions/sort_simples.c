@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_simples.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 12:31:14 by fschuh            #+#    #+#             */
-/*   Updated: 2025/03/13 14:48:16 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/03/17 16:09:51 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	sort_three(t_stack **stack_a, t_stack **stack_b)
 		pa(stack_a, stack_b);
 		ra(stack_a);
 	}
-	else if ((*stack_b)->value < ft_last_item(*stack_a)->value)
+	else if ((*stack_b)->value > (*stack_a)->value)
 	{
 		ra(stack_a);
 		pa(stack_a, stack_b);

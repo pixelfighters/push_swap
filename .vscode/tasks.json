@@ -11,6 +11,7 @@
                 "./functions/list_functions.c",
                 "./functions/rotate_functions.c",
                 "./functions/sort_simples.c",
+                "./functions/sort_algorithm.c",				
                 "./functions/swap_functions.c",
                 "./functions/rev_rotate_functions.c",
                 "./functions/push_functions.c",
