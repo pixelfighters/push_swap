@@ -6,33 +6,22 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:23:33 by fschuh            #+#    #+#             */
-/*   Updated: 2025/04/01 17:52:07 by kami             ###   ########.fr       */
+/*   Updated: 2025/04/01 18:37:30 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-
-// check for max int size
-
-void ft_free_split(char **splitted)
-{
-	int i;
-
-	i = 0;
-	if (!splitted)
-		return;
-	while (splitted[i] != NULL)
-	{
-		free(splitted[i]);
-		i++;
-	}
-	free(splitted);
-}
-
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <errno.h>
+
+
+#include <limits.h>
+#include <stdlib.h>
+#include <errno.h>
+
+// have to check for maximums size ints
 
 // Helper function to remove consecutive spaces
 char *remove_consecutive_spaces(const char *str)
@@ -88,7 +77,7 @@ int ft_arraylength(int argc, char **argv)
 				counter++;
 				i++;
 			}
-			ft_free_split(splitted);
+			// ft_free_split(splitted);
 		}
 		j++;
 	}
@@ -124,7 +113,7 @@ char **ft_flatten_args(int argc, char **argv)
         }
 
         // Debug: Print cleaned argument
-        ft_printf("cleaned_arg[%d]: %s\n", j, cleaned_arg);
+        // ft_printf("cleaned_arg[%d]: %s\n", j, cleaned_arg);
 
         splitted = ft_split(cleaned_arg, ' ');
         free(cleaned_arg); // Free the cleaned argument after splitting
@@ -173,6 +162,34 @@ int is_valid_number(const char *str)
         i++;
     }
 
+    char *endptr;
+    long value;
+
+    // Check for an empty string
+    if (str == NULL || str[0] == '\0')
+        return 0;
+
+    // Check for a single '-' without digits
+    if (str[0] == '-' && str[1] == '\0')
+        return 0;
+
+    // Reset errno before calling strtol
+    errno = 0;
+
+    // Convert the string to a long
+    value = strtol(str, &endptr, 10);
+
+    // Check for conversion errors or out-of-range values
+    if (errno == ERANGE || value < INT_MIN || value > INT_MAX)
+        return 0; // Out of range for int
+
+    // Check if the entire string was converted
+    if (*endptr != '\0')
+        return 0; // Invalid characters found
+
+
+
+
     // Return 1 if the string is a valid number
     return (i > 0); // Ensure there's at least one digit
 }
@@ -207,9 +224,20 @@ char **ft_checkargs(int argc, char **argv)
 {
     char **flattened_array;
 
+
     flattened_array = ft_flatten_args(argc, argv);
+
     if (!flattened_array)
         ft_errhandle("Error");
+
+    for (int i = 0; flattened_array[i] != NULL; i++)
+    {
+        if (!is_valid_number(flattened_array[i]))
+        {
+        //    ft_printf("Invalid argument: %s\n", flattened_array[i]); // Debugging print
+            ft_errhandle("Error");
+        }
+    }
 
     if (ft_checkdoubles(ft_arraylength(argc, argv), flattened_array))
         ft_errhandle("Error");

@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:34 by kami              #+#    #+#             */
-/*   Updated: 2025/04/01 17:52:27 by kami             ###   ########.fr       */
+/*   Updated: 2025/04/01 17:57:47 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int main(int argc, char **argv)
     init_index(stack_a);
     // print_list(stack_a);
     stack_b = NULL;
-		for (int i = 0; flattened_array[i] != NULL; i++)
-    ft_printf("flattened_array[%d]: %s\n", i, flattened_array[i]);
+/* 		for (int i = 0; flattened_array[i] != NULL; i++)
+    ft_printf("flattened_array[%d]: %s\n", i, flattened_array[i]); */
     ft_count(ft_arraylength(argc, argv), &stack_a, &stack_b);
     // print_list(stack_a);
     free_list(stack_a);

@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:06:46 by kami              #+#    #+#             */
-/*   Updated: 2025/04/01 16:20:17 by kami             ###   ########.fr       */
+/*   Updated: 2025/04/01 17:59:12 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	reverse_rotate(t_stack **stack_ptr)
 	second_last = NULL;
 	if (*stack_ptr == NULL || (*stack_ptr)->next == NULL)
 	{
-		ft_errhandle("Error msg\n");
+		ft_errhandle("Error");
 	}
 	while (last->next != NULL)
 	{

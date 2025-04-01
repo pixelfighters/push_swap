@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:18:38 by fschuh            #+#    #+#             */
-/*   Updated: 2025/04/01 16:20:17 by kami             ###   ########.fr       */
+/*   Updated: 2025/04/01 17:59:12 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	push(t_stack **stack_from_ptr, t_stack **stack_to_ptr)
 
 	push_value = *stack_from_ptr;
 	if (*stack_from_ptr == NULL)
-		ft_errhandle("Errorn");
+		ft_errhandle("Error");
 	*stack_from_ptr = (*stack_from_ptr)->next;
 	if (*stack_from_ptr != NULL)
 		(*stack_from_ptr)->prev = NULL;
