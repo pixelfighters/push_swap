@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:06:46 by kami              #+#    #+#             */
-/*   Updated: 2025/03/06 14:07:52 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/04/01 16:44:59 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	swap_top_two(t_stack **stack_ptr)
 	second = (*stack_ptr)->next;
 	if (*stack_ptr == NULL || (*stack_ptr)->next == NULL)
 	{
-		ft_errhandle("Error msg - not enough elements in stack\n");
+		ft_errhandle("Error\n");
 	}
 	temp = first->value;
 	first->value = second->value;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:21:23 by kami              #+#    #+#             */
-/*   Updated: 2025/03/13 14:45:20 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/04/01 17:21:23 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include "libft.h"
+#include <ctype.h>
 
 # define MAX_COMMANDS 500
 
@@ -30,7 +31,9 @@ typedef struct s_node
 
 // Function prototypes
 
-int		ft_checkargs(int argc, char **argv);
+char **ft_checkargs(int argc, char **argv);
+void		ft_flattenargs(int argc, char **argv);
+int	ft_arraylength(int argc, char **argv);
 int		ft_count(int argc, t_stack **stack_a, t_stack **stack_b);
 int		is_sorted(t_stack *stack_a);
 void	free_list(t_stack *stack);

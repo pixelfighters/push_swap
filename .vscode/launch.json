@@ -2,11 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug nodes",
+            "name": "Debug Push Swap",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/push_swap",
-            "args": ["2", "3", "1"], // Add your program arguments here
+            "program": "${workspaceFolder}/push_swap", // Path to your compiled binary
+            "args": ["8", "6", "5", "3", "1", "2 7 12 333", "14"], // Example arguments
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
@@ -19,11 +19,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build",
-            "miDebuggerPath": "/usr/bin/gdb", // Adjust this path if necessary
-            "logging": {
-                "engineLogging": true
-            }
+            "preLaunchTask": "build" // Optional: Add a build task
         }
     ]
 }

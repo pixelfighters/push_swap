@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rotate_functions.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/07 12:06:46 by kami              #+#    #+#             */
-/*   Updated: 2025/03/12 14:58:29 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/04/01 16:20:17 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	reverse_rotate(t_stack **stack_ptr)
 	second_last = NULL;
 	if (*stack_ptr == NULL || (*stack_ptr)->next == NULL)
 	{
-		ft_errhandle("Error msg - reverse rotate \n");
+		ft_errhandle("Error msg\n");
 	}
 	while (last->next != NULL)
 	{

@@ -7,7 +7,8 @@ INC = ./includes
 # Compiler and Flags
 UNAME := $(shell uname)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I$(INC) -I$(LIBFT_DIR) -O3 -g
+CFLAGS = -Wall -Wextra -I$(INC) -I$(LIBFT_DIR) -O3 -g
+# CFLAGS = -Wall -Wextra -Werror -I$(INC) -I$(LIBFT_DIR) -O3 -g
 LFLAGS = -L$(LIBFT_DIR) -lft -lm
 
 # Adjust LFLAGS for non-macOS systems

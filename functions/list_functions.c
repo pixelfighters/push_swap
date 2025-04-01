@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 11:18:38 by fschuh            #+#    #+#             */
-/*   Updated: 2025/03/13 14:45:37 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/04/01 16:15:15 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_stack	*fill_node(int argc, char **argv)
 	t_stack	*new_node;
 	int		i;
 
-	i = 1;
+	i = 0;
 	stack_a = NULL;
 	temp = NULL;
 	new_node = NULL;

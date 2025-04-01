@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/06 12:31:14 by fschuh            #+#    #+#             */
-/*   Updated: 2025/03/17 16:09:51 by kami             ###   ########.fr       */
+/*   Updated: 2025/04/01 16:11:06 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,13 +107,13 @@ int	ft_count(int argc, t_stack **stack_a, t_stack **stack_b)
 	i = 0;
 	while (!is_sorted(*stack_a) && i <= MAX_COMMANDS)
 	{
-		if (argc == 3)
+		if (argc == 2)
 			ra(stack_a);
-		else if (argc == 4)
+		else if (argc == 3)
 			sort_three(stack_a, stack_b);
-		else if (argc == 5)
+		else if (argc == 4)
 			sort_four(stack_a, stack_b);
-		else if (argc == 6)
+		else if (argc == 5)
 			sort_five(stack_a, stack_b);
 		else
 			sort_radix(stack_a, stack_b);
