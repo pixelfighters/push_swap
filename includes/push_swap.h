@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:21:23 by kami              #+#    #+#             */
-/*   Updated: 2025/04/01 17:21:23 by kami             ###   ########.fr       */
+/*   Updated: 2025/04/01 20:50:15 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	free_list(t_stack *stack);
 t_stack	*ft_last_item(t_stack *stack);
 int		read_bits(t_stack **stack);
 int		stack_size(t_stack *stack_a);
-void	sort_three(t_stack **stack_a, t_stack **stack_b);
+void	sort_three(t_stack **stack_a);
 void	sort_four(t_stack **stack_a, t_stack **stack_b);
 void	sort_five(t_stack **stack_a, t_stack **stack_b);
 void	init_index(t_stack *stack);
