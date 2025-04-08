@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_algorithm.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fschuh <fschuh@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 15:40:07 by fschuh            #+#    #+#             */
-/*   Updated: 2025/03/13 14:43:57 by fschuh           ###   ########.fr       */
+/*   Updated: 2025/04/08 19:21:03 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,20 @@ int	read_bits(t_stack **stack)
 	while ((max >> bits) != 0)
 		bits++;
 	return (bits);
+}
+
+void sort_insertion(t_stack **stack_a, t_stack **stack_b)
+{
+	while (*stack_a != NULL)
+	{
+		// Push the smallest element from stack_a to stack_b
+		push_to_top(stack_a, find_smallest(*stack_a));
+		pb(stack_a, stack_b);
+	}
+
+	// Push all elements back to stack_a in sorted order
+	while (*stack_b != NULL)
+		pa(stack_a, stack_b);
 }
 
 void	sort_radix(t_stack **stack_a, t_stack **stack_b)

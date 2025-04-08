@@ -6,7 +6,7 @@
 /*   By: kami <kami@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:21:23 by kami              #+#    #+#             */
-/*   Updated: 2025/04/01 20:50:15 by kami             ###   ########.fr       */
+/*   Updated: 2025/04/08 17:03:06 by kami             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,15 @@ void	sort_four(t_stack **stack_a, t_stack **stack_b);
 void	sort_five(t_stack **stack_a, t_stack **stack_b);
 void	init_index(t_stack *stack);
 void	sort_radix(t_stack **stack_a, t_stack **stack_b);
+int find_biggest(t_stack *stack);
+int find_smallest(t_stack *stack);
+void push_to_top(t_stack **stack, int value);
+int find_position(t_stack *stack, int value);
+void push_to_correct_position(t_stack **stack_a, int value);
+void push_chunk_to_stack_b(t_stack **stack_a, t_stack **stack_b, int start, int end);
+void turk_sort(t_stack **stack_a, t_stack **stack_b);
+int find_position_in_chunk(t_stack *stack, int start, int end);
+
 
 void	print_list(t_stack *stack_a);
 t_stack	*fill_node(int argc, char **argv);
