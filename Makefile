@@ -22,7 +22,7 @@ endif
 
 # Project Files
 NAME = push_swap
-SRC = push_swap.c functions/swap_functions.c functions/list_functions.c functions/sort_simples.c functions/push_functions.c functions/rev_rotate_functions.c functions/rotate_functions.c functions/arg_functions.c functions/sort_algorithm.c
+SRC = push_swap.c functions/swap_functions.c functions/list_functions.c functions/sort_simples.c functions/push_functions.c functions/rev_rotate_functions.c functions/rotate_functions.c functions/arg_functions.c functions/sort_algorithm.c  functions/sort_functions.c  functions/flatten_args.c
 OBJ = $(SRC:.c=.o)
 HEADERS = $(INC)/push_swap.h
 

@@ -6,7 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/push_swap", // Path to your compiled binary
-            "args": ["8", "6", "5", "3", "1"], // Example arguments
+            "args": ["8", "6", "5", "3", "1", "151", "879879", "-1212"], // Example arguments
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
