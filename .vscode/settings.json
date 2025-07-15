@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"stdlib.h": "c",
-		"stdbool.h": "c",
-		"push_swap.h": "c",
-		"type_traits": "c",
-		"libft.h": "c"
-	}
-}
