@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 	int		i;
 	char	**flattened_array;
 
+	if (argc == 1)
+		return (0);
 	flattened_array = ft_checkargs(argc, argv);
 	stack_a = fill_node(ft_arraylength(argc, argv), flattened_array);
 	init_index(stack_a);

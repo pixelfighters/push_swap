@@ -90,9 +90,9 @@ int	ft_checkdoubles(int argc, char **argv)
 		while (argc > j)
 		{
 			if (!is_valid_number(argv[i]))
-				ft_errhandle("Error");
+				return (1);
 			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-				ft_errhandle("Error");
+				return (1);
 			j++;
 		}
 		i++;
@@ -115,11 +115,27 @@ char	**ft_checkargs(int argc, char **argv)
 	{
 		if (!is_valid_number(flattened_array[i]))
 		{
+			i = 0;
+			while (flattened_array[i] != NULL)
+			{
+				free(flattened_array[i]);
+				i++;
+			}
+			free(flattened_array);
 			ft_errhandle("Error");
 		}
 		i++;
 	}
 	if (ft_checkdoubles(ft_arraylength(argc, argv), flattened_array))
+	{
+		i = 0;
+		while (flattened_array[i] != NULL)
+		{
+			free(flattened_array[i]);
+			i++;
+		}
+		free(flattened_array);
 		ft_errhandle("Error");
+	}
 	return (flattened_array);
 }

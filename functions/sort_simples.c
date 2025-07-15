@@ -102,10 +102,8 @@ void	sort_five(t_stack **stack_a, t_stack **stack_b)
 
 int	ft_count(int argc, t_stack **stack_a, t_stack **stack_b)
 {
-	int	size;
 	int	i;
 
-	size = stack_size(*stack_a);
 	i = 0;
 	while (!is_sorted(*stack_a) && i <= MAX_COMMANDS)
 	{

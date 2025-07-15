@@ -98,6 +98,12 @@ char	**ft_flatten_args(int argc, char **argv)
 			free_flattened_array(&data);
 			return (NULL);
 		}
+		if (ft_strlen(data.cleaned_arg) == 0)
+		{
+			free(data.cleaned_arg);
+			free(data.flattened_array);
+			ft_errhandle("Error");
+		}
 		data.splitted = ft_split(data.cleaned_arg, ' ');
 		free(data.cleaned_arg);
 		if (data.splitted)

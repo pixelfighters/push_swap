@@ -7,8 +7,7 @@ INC = ./includes
 # Compiler and Flags
 UNAME := $(shell uname)
 CC = cc
-CFLAGS = -Wall -Wextra -I$(INC) -I$(LIBFT_DIR) -O3 -g
-# CFLAGS = -Wall -Wextra -Werror -I$(INC) -I$(LIBFT_DIR) -O3 -g
+CFLAGS = -Wall -Wextra -Werror -I$(INC) -I$(LIBFT_DIR) -O3 -g
 LFLAGS = -L$(LIBFT_DIR) -lft -lm
 
 # Adjust LFLAGS for non-macOS systems
@@ -32,15 +31,20 @@ all: $(NAME)
 $(NAME): $(OBJ) $(LIBFT_DIR)/libft.a
 	$(CC) $(OBJ) -o $@ $(LFLAGS)
 
+$(LIBFT_DIR)/libft.a:
+	$(MAKE) -C $(LIBFT_DIR)
+
 
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(NAME)
+	rm -f $(OBJ)
+	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
-	rm -f $(LIBFT_DIR)/*.o
+	rm -f $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
